@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-modal',
@@ -8,7 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ModalComponent implements OnInit {
   @Input() modal_content!: any;
 
-  constructor() {}
+  todo_form: any = FormGroup;
 
-  ngOnInit(): void {}
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.todo_form = this.fb.group({
+      title: [{ value: '', disabled: false }, [Validators.required]],
+    });
+  }
+
+  onSubmit() {
+    console.log(this.todo_form.value);
+  }
 }

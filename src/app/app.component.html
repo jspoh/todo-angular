@@ -14,11 +14,16 @@
 >
   <section
     class="rounded-2xl bg-neutral-300 w-full flex flex-row justify-between p-4 mb-4"
-    *ngFor="let todo of todo_list"
+    [ngClass]="{ 'mb-4': i !== todo_list.length - 1 }"
+    *ngFor="let todo of todo_list; let i = index"
   >
     <p class="">{{ todo.title }}</p>
 
     <!-- BUTTONS -->
+    <div class="flex justify-between gap-4">
+      <span class="cursor-pointer" (click)="editTodo(i)">Edit</span>
+      <span class="cursor-pointer" (click)="deleteTodo(i)">Delete</span>
+    </div>
   </section>
 </div>
 
