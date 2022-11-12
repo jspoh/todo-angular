@@ -28,5 +28,7 @@ export class AppComponent implements OnInit {
     this.todo_service.editing.next(true);
   }
 
-  deleteTodo(i: number) {}
+  deleteTodo(i: number) {
+    this.todo_service.todo_list.splice(i, 1);
+  }
 }

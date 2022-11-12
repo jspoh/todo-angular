@@ -31,7 +31,6 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.todo_service.editing
       .pipe(takeUntil(this.todo_service.unsubscribe$))
       .subscribe((editing) => {
-        console.log(editing, this.todo_service.editing);
         editing
           ? this.title.setValue(
               this.todo_service.todo_list[this.todo_service.index].title
@@ -67,5 +66,6 @@ export class ModalComponent implements OnInit, OnDestroy {
   closeModal() {
     this.closeModalBtn!.nativeElement.click();
     this.todo_service.reset();
+    this.todo_form.reset();
   }
 }
