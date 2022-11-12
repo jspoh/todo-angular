@@ -21,8 +21,14 @@
 
     <!-- BUTTONS -->
     <div class="flex justify-between gap-4">
-      <span class="cursor-pointer" (click)="editTodo(i)">Edit</span>
-      <span class="cursor-pointer" (click)="deleteTodo(i)">Delete</span>
+      <span
+        class="cursor-pointer"
+        (click)="editTodo(i)"
+        data-bs-toggle="modal"
+        data-bs-target="#newBtn"
+        >Edit
+      </span>
+      <span class="cursor-pointer" (click)="deleteTodo(i)">Delete </span>
     </div>
   </section>
 </div>

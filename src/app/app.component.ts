@@ -23,7 +23,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {}
 
-  editTodo(i: number) {}
+  editTodo(i: number) {
+    this.todo_service.index = i;
+    this.todo_service.editing.next(true);
+  }
 
   deleteTodo(i: number) {}
 }
