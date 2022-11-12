@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-modal',
@@ -11,7 +12,7 @@ export class ModalComponent implements OnInit {
 
   todo_form: any = FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private todo_service: TodoService) {}
 
   ngOnInit(): void {
     this.todo_form = this.fb.group({
@@ -20,6 +21,6 @@ export class ModalComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.todo_form.value);
+    this.todo_service.todo_list.push(this.todo_form.value);
   }
 }

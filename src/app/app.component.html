@@ -14,8 +14,8 @@
 >
   <section
     class="rounded-2xl bg-neutral-300 w-full flex flex-row justify-between p-4 mb-4"
-    [ngClass]="{ 'mb-4': i !== todo_list.length - 1 }"
-    *ngFor="let todo of todo_list; let i = index"
+    [ngClass]="{ 'mb-4': i !== todo_service.todo_list.length - 1 }"
+    *ngFor="let todo of todo_service.todo_list; let i = index"
   >
     <p class="">{{ todo.title }}</p>
 
